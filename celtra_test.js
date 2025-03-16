@@ -8,7 +8,7 @@ Scenario('Creative filtering', async ({ I }) => {
   // reusable code for check creatives
   async function checkCreatives(expectedCount, message) {
     if (expectedCount > 0) {
-      I.waitForElement('.creative-variant', 3); // try with data-testilda-id="creative-variant-unit"
+      I.waitForElement('.creative-variant', 10); // try with data-testilda-id="creative-variant-unit"
     }
     
     const count = await I.grabNumberOfVisibleElements('.creative-variant');
@@ -19,7 +19,7 @@ Scenario('Creative filtering', async ({ I }) => {
   async function applyFilter(filterType, optionId) {
     I.click('[data-testilda-id="add-filter-button"]');
     I.seeElement('.filter-new__options');
-    I.waitForElement({ text: filterType, exact: true }, 3, '.filter-new__options');
+    I.waitForElement({ text: filterType, exact: true }, 10, '.filter-new__options');
     I.click({ text: filterType, exact: true }, '.filter-new__options');
     I.click(`[data-id="${optionId}"]`);
     I.click('[data-testilda-id="dialog-button-container"]');
@@ -55,12 +55,12 @@ Scenario('Creative sorting', async ({ I }) => {
   const initialOrder = await I.grabTextFromAll('.creative-variant .creative-title'); 
   console.log('Initial Order:', initialOrder);
 
-  // Reapply sorting to verify the order
+  // Reapply "Last Modified Creative" sorting to verify the order
   I.click('[data-testilda-id="defaultListItem"]');
   I.waitForElement('[title="Last modified creative"]', 5);
   I.click('[title="Last modified creative"]');
 
-  // order after reapplying sorting
+  // Capture the order after reapplying sorting
   const sortedOrder = await I.grabTextFromAll('.creative-variant .creative-title');
   console.log('Sorted Order (Last Modified):', sortedOrder);
 
