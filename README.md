@@ -4,7 +4,7 @@ This repository contains an automated test script for Celtra's QA evaluation, wr
 
 📌 Project Overview
 
-The test script celtra_test.js performs automated validation of a banner ad within an iframe to ensure its correct rendering and functionality.
+The test script celtra_test.js performs automated validation of elemtns on the test page
 
 🛠 Tech Stack
 
